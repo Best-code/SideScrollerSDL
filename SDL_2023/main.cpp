@@ -1,14 +1,10 @@
-//
-//  main.cpp
-//  SDL_2023
-//
-//  Created by Colin Maloney on 10/9/23.
-//
+#include "Engine.hpp"
 
-#include <iostream>
-
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+int main()
+{
+	Engine mario("Colins Epic Side Scroller");
+	if(!mario.run())
+	{
+		std::cout << "Womp Womp";
+	}
 }
