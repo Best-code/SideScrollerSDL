@@ -1,6 +1,13 @@
-#include "Engine.hpp"
+//
+//  Mario.cpp
+//  SDL_2023
+//
+//  Created by Colin Maloney on 10/10/23.
+//
 
-bool Engine::init()
+#include "Mario.hpp"
+
+bool Mario::init()
 {
     //Initialize SDL
     if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
@@ -26,14 +33,36 @@ bool Engine::init()
         return false;
     }
     
+    // Create Renderer
+    gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_ACCELERATED);
+    if(gRenderer == NULL)
+    {
+        printf( "SDL Renderer could not initialize! SDL_Error: %s\n", SDL_GetError() );
+        return false;
+    }
+    SDL_SetRenderDrawColor(gRenderer, 255, 255, 255, 1);
+    
     
     //Get gWindow surface
     gSurface = SDL_GetWindowSurface( gWindow );
     
+    
+    grass = new GameObject(200, 200, 40, 40, gSurface, gRenderer, "/Users/colinmaloney/Documents/Code/C++/SDL_2023/SDL_2023/Grass.png");
     return true;
 }
 
-void Engine::gameLoop()
+void Mario::draw()
+{
+    //Apply the PNG image
+//    SDL_BlitSurface( image, NULL, gSurface, NULL );
+    SDL_RenderClear(gRenderer);
+
+    grass->draw();
+    
+    SDL_RenderPresent(gRenderer);
+}
+
+void Mario::gameLoop()
 {
     // Keeping ggWindow open
     SDL_Event e;
@@ -45,15 +74,11 @@ void Engine::gameLoop()
             if( e.type == SDL_QUIT )
                 quit = true;
         }
-        //Apply the PNG image
-        SDL_BlitSurface( image, NULL, gSurface, NULL );
-        
-        //Update the surface
-        SDL_UpdateWindowSurface( gWindow );
+        draw();
     }
 }
 
-bool Engine::run()
+bool Mario::run()
 {
     if (!init())
     {
@@ -71,7 +96,7 @@ bool Engine::run()
 }
 
 
-bool Engine::loadImage(std::string fileName)
+bool Mario::loadImage(std::string fileName)
 {
     bool success = true;
     image = SDL_LoadBMP(fileName.c_str());
@@ -83,7 +108,7 @@ bool Engine::loadImage(std::string fileName)
     return success;
 }
 
-SDL_Surface* Engine::LoadImage_SDL(std::string fileName){
+SDL_Surface* Mario::LoadImage_SDL(std::string fileName){
     SDL_Surface* result = IMG_Load(fileName.c_str());
     if(result == NULL)
     {
@@ -93,7 +118,7 @@ SDL_Surface* Engine::LoadImage_SDL(std::string fileName){
     return result;
 };
 
-void Engine::close()
+void Mario::close()
 {
     SDL_DestroyWindow(gWindow);
     SDL_FreeSurface(image);

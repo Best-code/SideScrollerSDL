@@ -1,42 +1,48 @@
 //
-//  Engine.hpp
+//  Mario.hpp
 //  SDL_2023
 //
 //  Created by Colin Maloney on 10/10/23.
 //
 
-#ifndef Engine_hpp
-#define Engine_hpp
+#ifndef Mario_hpp
+#define Mario_hpp
 
-#include <iostream>
-#include <SDL2/SDL.h>
-#include <SDL2_image/SDL_image.h>
+#include <stdio.h>
+#include "Engine.hpp"
+#include "GameObject.hpp"
 
-
-class Engine{
+class Mario : public Engine
+{
 public:
     const int SCREEN_HEIGHT = 720;
     const int SCREEN_WIDTH = 1280;
     
     SDL_Window* gWindow = NULL;
     SDL_Surface* gSurface = NULL;
+    SDL_Renderer* gRenderer = NULL;
+    GameObject* grass = NULL;
+    
     SDL_Surface* image = NULL;
     
     std::string title;
     
-    Engine(std::string title) : title(title) {}
+    Mario(std::string title) : Engine(title) {}
     
-    virtual bool run();
+    bool run();
     
-    virtual bool init();
-    
-    virtual void gameLoop();
+    bool init();
     
     bool loadImage(std::string fileName);
     
     SDL_Surface* LoadImage_SDL(std::string fileName);
     
-    virtual void close();
+    void gameLoop();
+    
+    void draw();
+    
+    void close();
     
 };
-#endif /* Engine_hpp */
+
+#endif /* Mario_hpp */

@@ -1,10 +1,14 @@
-#include "Engine.hpp"
+#include "Mario.hpp"
+#include "GameObject.hpp"
 
 int main()
 {
-	Engine mario("Colins Epic Side Scroller");
-	if(!mario.run())
+	Engine* mario = new Mario("Colins Epic Side Scroller");
+	if(!mario->run())
 	{
 		std::cout << "Womp Womp";
+		return 0;
 	}
+	
+	return 1;
 }
