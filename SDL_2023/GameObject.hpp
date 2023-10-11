@@ -11,17 +11,23 @@
 #include <stdio.h>
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
+#include <string>
 
 class GameObject {
 public:
     int x, y, w, h;
+    SDL_Rect location;
+    
     SDL_Window* gWindow;
     SDL_Renderer* gRenderer;
     SDL_Surface* dstSurface;
     SDL_Texture* image;
-    SDL_Rect location;
+
+    std::string imageFile;
     
-    GameObject(int x, int y, int w, int h, SDL_Surface* dstSurface, SDL_Renderer* renderer, const char* imageFile);
+    GameObject(int x, int y, int w, int h, std::string imageFile);
+    
+    void init(SDL_Surface* dstSurface, SDL_Renderer* renderer);
     
     void draw();
     

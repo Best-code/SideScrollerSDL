@@ -21,7 +21,10 @@ public:
     SDL_Window* gWindow = NULL;
     SDL_Surface* gSurface = NULL;
     SDL_Renderer* gRenderer = NULL;
-    GameObject* grass = NULL;
+    
+    GameObject* grass = new GameObject(200, 200, 40, 40, "/Users/colinmaloney/Documents/Code/C++/SDL_2023/SDL_2023/Grass.png");
+    
+    GameObject* objects[1] = {grass};
     
     SDL_Surface* image = NULL;
     
@@ -31,7 +34,10 @@ public:
     
     bool run();
     
+    
     bool init();
+    
+    void gameObjectsInitialize();
     
     bool loadImage(std::string fileName);
     

@@ -30,6 +30,8 @@ bool Engine::init()
     //Get gWindow surface
     gSurface = SDL_GetWindowSurface( gWindow );
     
+    
+    
     return true;
 }
 

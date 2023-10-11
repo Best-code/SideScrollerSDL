@@ -34,7 +34,7 @@ bool Mario::init()
     }
     
     // Create Renderer
-    gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_ACCELERATED);
+    gRenderer = SDL_CreateRenderer(gWindow, -1, SDL_RENDERER_SOFTWARE);
     if(gRenderer == NULL)
     {
         printf( "SDL Renderer could not initialize! SDL_Error: %s\n", SDL_GetError() );
@@ -45,10 +45,23 @@ bool Mario::init()
     
     //Get gWindow surface
     gSurface = SDL_GetWindowSurface( gWindow );
+    if( gSurface == NULL)
+    {
+        printf( "SDL Surface could not initialize! SDL_Error: %s\n", SDL_GetError() );
+        return false;
+    }
     
+    gameObjectsInitialize();
     
-    grass = new GameObject(200, 200, 40, 40, gSurface, gRenderer, "/Users/colinmaloney/Documents/Code/C++/SDL_2023/SDL_2023/Grass.png");
     return true;
+}
+
+void Mario::gameObjectsInitialize(){
+    for(auto &go : objects)
+    {
+        go->init(gSurface, gRenderer);
+        
+    }
 }
 
 void Mario::draw()
