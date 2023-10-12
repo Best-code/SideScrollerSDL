@@ -35,10 +35,8 @@ public:
     void drawGameObjects();
     
 public:
-    GameObject* grass = new Grass({0, 680, 40, 40});
-    GameObject* grass1 = new Grass({0, 640, 40, 40});
-    GameObject* grass2 = new Grass({0, 600, 40, 40});
-    GameObject* objects[3] = {grass, grass1, grass2};
+    GameObject* grass = new Grass({0, 0, 40, 40});
+    GameObject* objects[1] = {grass};
     
     
 };

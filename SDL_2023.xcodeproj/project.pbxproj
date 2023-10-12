@@ -36,6 +36,7 @@
 		C80681872AD7851700BD9759 /* Sprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
 		C80681882AD7851700BD9759 /* Sprite.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Sprite.hpp; sourceTree = "<group>"; };
 		C806818C2AD7954000BD9759 /* Grass.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Grass.hpp; sourceTree = "<group>"; };
+		C806818F2AD79A3200BD9759 /* Character.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
 		C89717442AD4F83E0086C4B9 /* SDL_2023 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SDL_2023; sourceTree = BUILT_PRODUCTS_DIR; };
 		C89717472AD4F83E0086C4B9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; usesTabs = 1; };
 		C897174F2AD4F8600086C4B9 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
@@ -65,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				C806818C2AD7954000BD9759 /* Grass.hpp */,
+				C806818F2AD79A3200BD9759 /* Character.h */,
 			);
 			path = GameObjects;
 			sourceTree = "<group>";

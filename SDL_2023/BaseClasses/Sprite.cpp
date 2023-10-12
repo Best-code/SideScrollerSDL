@@ -17,6 +17,20 @@ Sprite::Sprite(SDL_Rect location, SDL_Surface* dstSurface, SDL_Renderer* gRender
     SDL_FreeSurface(tempImage);
 }
 
+Sprite::Sprite(SDL_Rect location, SDL_Surface* dstSurface, SDL_Renderer* gRenderer, const char* imageFile, int repeatX, int repeatY)
+{
+    this->repeatX = repeatX;
+    this->repeatY = repeatY;
+    
+    this->location = location;
+    this->dstSurface = dstSurface;
+    this->gRenderer = gRenderer;
+        
+    SDL_Surface* tempImage = IMG_Load(imageFile);
+    this->image = SDL_CreateTextureFromSurface(gRenderer, tempImage);
+    SDL_FreeSurface(tempImage);
+}
+
 Sprite::~Sprite()
 {
     SDL_DestroyTexture(image);

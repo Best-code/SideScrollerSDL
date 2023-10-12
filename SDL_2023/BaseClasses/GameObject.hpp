@@ -38,8 +38,6 @@ public:
 
     void draw();
     
-    ~GameObject();
-    
 };
 
 #endif /* GameObject_hpp */

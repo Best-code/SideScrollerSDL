@@ -20,7 +20,7 @@ public:
     
     void init(SDL_Surface* dstSurface, SDL_Renderer* gRenderer) override
     {
-     grass = new Sprite(location, dstSurface, gRenderer, "/Users/colinmaloney/Documents/Code/C++/SDL_2023/SDL_2023/images/Grass.png");
+     grass = new Sprite(location, dstSurface, gRenderer, "/Users/colinmaloney/Documents/Code/C++/SDL_2023/SDL_2023/images/Grass.png", 5, 1);
         sprites.push_back(grass);
     
         this->dstSurface = dstSurface;
