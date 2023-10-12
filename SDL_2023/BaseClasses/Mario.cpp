@@ -83,8 +83,7 @@ void Mario::gameLoop()
                 quit = true;
             
             // Player controls
-//            pawn->update(e);
-//                pawn->handleInput(e);
+            character->update(e);
         }
        
         // Drawing to the screen

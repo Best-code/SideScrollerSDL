@@ -10,6 +10,15 @@
 
 GameObject::GameObject(SDL_Rect location){
     this->location = location;
+    this->boundary = location;
+}
+
+GameObject::GameObject(SDL_Rect location, int repeatX, int repeatY){
+    this->location = location;
+    this->repeatX = repeatX;
+    this->repeatY = repeatY;
+    
+    this->boundary = {location.x, location.y, location.w * repeatX, location.h * repeatY};
 }
 
 void GameObject::init(SDL_Surface* dstSurface, SDL_Renderer* gRenderer)

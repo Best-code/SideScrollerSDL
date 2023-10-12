@@ -13,6 +13,7 @@
 #include "Pawn.hpp"
 #include "Sprite.hpp"
 #include "Grass.hpp"
+#include "Character.h"
 
 class Mario : public Engine
 {
@@ -35,8 +36,9 @@ public:
     void drawGameObjects();
     
 public:
-    GameObject* grass = new Grass({0, 0, 40, 40});
-    GameObject* objects[1] = {grass};
+    GameObject* grass = new Grass({0, 680, 40, 40}, SCREEN_WIDTH/40, 1);
+    GameObject* character = new Character({0,0,40,80});
+    GameObject* objects[2] = {grass, character};
     
     
 };
