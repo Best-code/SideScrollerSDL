@@ -30,7 +30,7 @@ public:
     
     GameObject(SDL_Rect location);
     
-    void init(SDL_Surface* dstSurface, SDL_Renderer* renderer);
+    virtual void init(SDL_Surface* dstSurface, SDL_Renderer* renderer);
     
     virtual void update(SDL_Event& e) {};
     virtual void handleInput(SDL_Event& e) {};

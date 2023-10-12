@@ -12,6 +12,7 @@
 #include "Engine.hpp"
 #include "Pawn.hpp"
 #include "Sprite.hpp"
+#include "Grass.hpp"
 
 class Mario : public Engine
 {
@@ -34,11 +35,10 @@ public:
     void drawGameObjects();
     
 public:
-    SDL_Rect grassLocation = {0,680,40,40};
-    GameObject* grass = new GameObject(grassLocation);
-    Sprite* grassSprite = NULL;
-    
-    GameObject* objects[1] = {grass};
+    GameObject* grass = new Grass({0, 680, 40, 40});
+    GameObject* grass1 = new Grass({0, 640, 40, 40});
+    GameObject* grass2 = new Grass({0, 600, 40, 40});
+    GameObject* objects[3] = {grass, grass1, grass2};
     
     
 };

@@ -60,11 +60,7 @@ void Mario::gameObjectsInitialize(){
     for(auto &go : objects)
     {
         go->init(gSurface, gRenderer);
-        
     }
-    
-    grassSprite = new Sprite(grassLocation, gSurface, gRenderer, "/Users/colinmaloney/Documents/Code/C++/SDL_2023/SDL_2023/images/Grass.png");
-    grass->sprites.push_back(grassSprite);
 }
 
 void Mario::drawGameObjects(){
