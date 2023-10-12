@@ -18,6 +18,8 @@ public:
     int x, y, w, h;
     SDL_Rect location;
     
+    bool facingRight = 1;
+    
     SDL_Window* gWindow;
     SDL_Renderer* gRenderer;
     SDL_Surface* dstSurface;
@@ -29,6 +31,10 @@ public:
     
     void init(SDL_Surface* dstSurface, SDL_Renderer* renderer);
     
+    virtual void update(SDL_Event& e) {};
+    virtual void handleInput(SDL_Event& e) {};
+    virtual void updateLocation() {};
+
     void draw();
     
     ~GameObject();

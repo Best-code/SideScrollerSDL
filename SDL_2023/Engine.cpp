@@ -47,8 +47,6 @@ void Engine::gameLoop()
             if( e.type == SDL_QUIT )
                 quit = true;
         }
-        //Apply the PNG image
-        SDL_BlitSurface( image, NULL, gSurface, NULL );
         
         //Update the surface
         SDL_UpdateWindowSurface( gWindow );
@@ -62,27 +60,12 @@ bool Engine::run()
         printf("Failed to initialize.\n");
         return false;
     }
-
-    image = LoadImage_SDL("/Users/colinmaloney/Documents/Code/C++/SDL_2023/SDL_2023/Grass.png");
     
     gameLoop();
     
     close();
     
     return true;
-}
-
-
-bool Engine::loadImage(std::string fileName)
-{
-    bool success = true;
-    image = SDL_LoadBMP(fileName.c_str());
-    if( image == NULL )
-    {
-        printf( "Unable to load image %s! SDL Error: %s\n", fileName.c_str(), SDL_GetError() );
-        success = false;
-    }
-    return success;
 }
 
 SDL_Surface* Engine::LoadImage_SDL(std::string fileName){
@@ -98,7 +81,6 @@ SDL_Surface* Engine::LoadImage_SDL(std::string fileName){
 void Engine::close()
 {
     SDL_DestroyWindow(gWindow);
-    SDL_FreeSurface(image);
     SDL_Quit();
 }
 

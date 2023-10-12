@@ -33,7 +33,7 @@ void GameObject::init(SDL_Surface* dstSurface, SDL_Renderer* gRenderer)
 }
 
 void GameObject::draw(){
-    SDL_RenderCopy(gRenderer, image, NULL, &location);
+    SDL_RenderCopyEx(gRenderer, image, NULL, &location, 0, NULL, facingRight ? SDL_FLIP_NONE : SDL_FLIP_HORIZONTAL);
 }
 
 GameObject::~GameObject(){

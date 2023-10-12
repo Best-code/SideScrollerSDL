@@ -10,7 +10,7 @@
 
 #include <stdio.h>
 #include "Engine.hpp"
-#include "GameObject.hpp"
+#include "Pawn.hpp"
 
 class Mario : public Engine
 {
@@ -18,36 +18,27 @@ public:
     const int SCREEN_HEIGHT = 720;
     const int SCREEN_WIDTH = 1280;
     
+    std::string title;
+    Mario(std::string title) : Engine(title) {}
+    
     SDL_Window* gWindow = NULL;
     SDL_Surface* gSurface = NULL;
     SDL_Renderer* gRenderer = NULL;
     
-    GameObject* grass = new GameObject(200, 200, 40, 40, "/Users/colinmaloney/Documents/Code/C++/SDL_2023/SDL_2023/Grass.png");
-    
-    GameObject* objects[1] = {grass};
-    
-    SDL_Surface* image = NULL;
-    
-    std::string title;
-    
-    Mario(std::string title) : Engine(title) {}
-    
-    bool run();
-    
-    
-    bool init();
+    bool init() override;
+    void gameLoop() override;
+    void close() override;
     
     void gameObjectsInitialize();
+    void drawGameObjects();
     
-    bool loadImage(std::string fileName);
+public:
+    GameObject* grass = new GameObject(0, 680, 40, 40, "/Users/colinmaloney/Documents/Code/C++/SDL_2023/SDL_2023/images/Grass.png");
     
-    SDL_Surface* LoadImage_SDL(std::string fileName);
+    GameObject* pawn = new Pawn(340, 520, 40, 80, "/Users/colinmaloney/Documents/Code/C++/SDL_2023/SDL_2023/images/Character.png");
     
-    void gameLoop();
+    GameObject* objects[2] = {grass, pawn};
     
-    void draw();
-    
-    void close();
     
 };
 

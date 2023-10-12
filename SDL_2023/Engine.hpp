@@ -18,13 +18,14 @@ public:
     const int SCREEN_HEIGHT = 720;
     const int SCREEN_WIDTH = 1280;
     
+    Engine(std::string title) : title(title) {}
+    
     SDL_Window* gWindow = NULL;
     SDL_Surface* gSurface = NULL;
-    SDL_Surface* image = NULL;
     
     std::string title;
+    SDL_Surface* LoadImage_SDL(std::string fileName);
     
-    Engine(std::string title) : title(title) {}
     
     virtual bool run();
     
@@ -32,9 +33,6 @@ public:
     
     virtual void gameLoop();
     
-    bool loadImage(std::string fileName);
-    
-    SDL_Surface* LoadImage_SDL(std::string fileName);
     
     virtual void close();
     

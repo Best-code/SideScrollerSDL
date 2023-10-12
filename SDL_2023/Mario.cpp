@@ -64,15 +64,11 @@ void Mario::gameObjectsInitialize(){
     }
 }
 
-void Mario::draw()
-{
-    //Apply the PNG image
-//    SDL_BlitSurface( image, NULL, gSurface, NULL );
-    SDL_RenderClear(gRenderer);
-
-    grass->draw();
-    
-    SDL_RenderPresent(gRenderer);
+void Mario::drawGameObjects(){
+    for(auto &go : objects)
+    {
+        go->draw();
+    }
 }
 
 void Mario::gameLoop()
@@ -86,55 +82,27 @@ void Mario::gameLoop()
         {
             if( e.type == SDL_QUIT )
                 quit = true;
+            
+            // Player controls
+//            pawn->update(e);
+            std::cout << (e.type == SDL_KEYDOWN) << std::endl << std::endl;
+            if(e.type == SDL_KEYDOWN)
+            {
+                pawn->handleInput(e);
+            }
         }
-        draw();
+       
+        // Drawing to the screen
+        SDL_RenderClear(gRenderer);
+        drawGameObjects();
+        SDL_RenderPresent(gRenderer);
     }
 }
-
-bool Mario::run()
-{
-    if (!init())
-    {
-        printf("Failed to initialize.\n");
-        return false;
-    }
-
-    image = LoadImage_SDL("/Users/colinmaloney/Documents/Code/C++/SDL_2023/SDL_2023/Grass.png");
-    
-    gameLoop();
-    
-    close();
-    
-    return true;
-}
-
-
-bool Mario::loadImage(std::string fileName)
-{
-    bool success = true;
-    image = SDL_LoadBMP(fileName.c_str());
-    if( image == NULL )
-    {
-        printf( "Unable to load image %s! SDL Error: %s\n", fileName.c_str(), SDL_GetError() );
-        success = false;
-    }
-    return success;
-}
-
-SDL_Surface* Mario::LoadImage_SDL(std::string fileName){
-    SDL_Surface* result = IMG_Load(fileName.c_str());
-    if(result == NULL)
-    {
-        printf( "Unable to load image %s! SDL Error: %s\n", fileName.c_str(), SDL_GetError() );
-        exit(0);
-    }
-    return result;
-};
 
 void Mario::close()
 {
     SDL_DestroyWindow(gWindow);
-    SDL_FreeSurface(image);
+    SDL_DestroyRenderer(gRenderer);
     SDL_Quit();
 }
 
