@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C806817B2AD75D5600BD9759 /* Pawn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C80681792AD75D5600BD9759 /* Pawn.cpp */; };
+		C80681892AD7851700BD9759 /* Sprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C80681872AD7851700BD9759 /* Sprite.cpp */; };
 		C89717482AD4F83E0086C4B9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C89717472AD4F83E0086C4B9 /* main.cpp */; };
 		C89717502AD4F8600086C4B9 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C897174F2AD4F8600086C4B9 /* SDL2.framework */; };
 		C89717542AD501800086C4B9 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C89717532AD501800086C4B9 /* SDL2_image.framework */; };
@@ -32,6 +33,8 @@
 		C80681792AD75D5600BD9759 /* Pawn.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Pawn.cpp; sourceTree = "<group>"; };
 		C806817A2AD75D5600BD9759 /* Pawn.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Pawn.hpp; sourceTree = "<group>"; };
 		C80681862AD76EF000BD9759 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
+		C80681872AD7851700BD9759 /* Sprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sprite.cpp; sourceTree = "<group>"; };
+		C80681882AD7851700BD9759 /* Sprite.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Sprite.hpp; sourceTree = "<group>"; };
 		C89717442AD4F83E0086C4B9 /* SDL_2023 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SDL_2023; sourceTree = BUILT_PRODUCTS_DIR; };
 		C89717472AD4F83E0086C4B9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; usesTabs = 1; };
 		C897174F2AD4F8600086C4B9 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
@@ -87,6 +90,8 @@
 				C806817A2AD75D5600BD9759 /* Pawn.hpp */,
 				C89D9A8C2AD5DFC2005B8463 /* Mario.hpp */,
 				C89D9A8B2AD5DFC2005B8463 /* Mario.cpp */,
+				C80681872AD7851700BD9759 /* Sprite.cpp */,
+				C80681882AD7851700BD9759 /* Sprite.hpp */,
 			);
 			path = SDL_2023;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 			files = (
 				C89717482AD4F83E0086C4B9 /* main.cpp in Sources */,
 				C89D9A852AD5AC25005B8463 /* Engine.cpp in Sources */,
+				C80681892AD7851700BD9759 /* Sprite.cpp in Sources */,
 				C89D9A8D2AD5DFC2005B8463 /* Mario.cpp in Sources */,
 				C89D9A8A2AD5DA29005B8463 /* GameObject.cpp in Sources */,
 				C806817B2AD75D5600BD9759 /* Pawn.cpp in Sources */,

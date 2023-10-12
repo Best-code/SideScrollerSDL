@@ -12,6 +12,8 @@
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
 #include <string>
+#include "Sprite.hpp"
+#include <vector>
 
 class GameObject {
 public:
@@ -23,11 +25,10 @@ public:
     SDL_Window* gWindow;
     SDL_Renderer* gRenderer;
     SDL_Surface* dstSurface;
-    SDL_Texture* image;
-
-    std::string imageFile;
     
-    GameObject(int x, int y, int w, int h, std::string imageFile);
+    std::vector<Sprite*> sprites;
+    
+    GameObject(SDL_Rect location);
     
     void init(SDL_Surface* dstSurface, SDL_Renderer* renderer);
     

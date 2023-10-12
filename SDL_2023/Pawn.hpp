@@ -12,7 +12,7 @@
 
 class Pawn : public GameObject{
 public:
-    Pawn(int x, int y, int w, int h, std::string imageFile) : GameObject(x, y, w, h, imageFile) {}
+    Pawn(SDL_Rect location) : GameObject(location) {}
     
     int velocity = 5;
     

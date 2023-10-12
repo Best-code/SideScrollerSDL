@@ -62,6 +62,9 @@ void Mario::gameObjectsInitialize(){
         go->init(gSurface, gRenderer);
         
     }
+    
+    grassSprite = new Sprite(grassLocation, gSurface, gRenderer, "/Users/colinmaloney/Documents/Code/C++/SDL_2023/SDL_2023/images/Grass.png");
+    grass->sprites.push_back(grassSprite);
 }
 
 void Mario::drawGameObjects(){
@@ -85,11 +88,7 @@ void Mario::gameLoop()
             
             // Player controls
 //            pawn->update(e);
-            std::cout << (e.type == SDL_KEYDOWN) << std::endl << std::endl;
-            if(e.type == SDL_KEYDOWN)
-            {
-                pawn->handleInput(e);
-            }
+//                pawn->handleInput(e);
         }
        
         // Drawing to the screen

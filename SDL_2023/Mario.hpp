@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include "Engine.hpp"
 #include "Pawn.hpp"
+#include "Sprite.hpp"
 
 class Mario : public Engine
 {
@@ -33,11 +34,11 @@ public:
     void drawGameObjects();
     
 public:
-    GameObject* grass = new GameObject(0, 680, 40, 40, "/Users/colinmaloney/Documents/Code/C++/SDL_2023/SDL_2023/images/Grass.png");
+    SDL_Rect grassLocation = {0,680,40,40};
+    GameObject* grass = new GameObject(grassLocation);
+    Sprite* grassSprite = NULL;
     
-    GameObject* pawn = new Pawn(340, 520, 40, 80, "/Users/colinmaloney/Documents/Code/C++/SDL_2023/SDL_2023/images/Character.png");
-    
-    GameObject* objects[2] = {grass, pawn};
+    GameObject* objects[1] = {grass};
     
     
 };
